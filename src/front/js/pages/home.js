@@ -10,13 +10,16 @@ export const Home = () => {
 	const [addTodo, setAddTodo] = useState("");
 
 	useEffect(() => {
-		fetch("/api/todo")
+		fetch(process.env.BACKEND_URL + "/api/todo")
 			.then(response => {
 				if (response.ok) {
 					return response.json();
 				}
 			})
-			.then(data => setTodo(data));
+			.then(data => {
+				console.log(data);
+				setTodo(data);
+			});
 	}, []);
 
 	const inputChangeHandle = inputValeu => {
@@ -24,7 +27,7 @@ export const Home = () => {
 	};
 
 	const handelInputSubmit = () => {
-		fetch("/api/creat", {
+		fetch(process.env.BACKEND_URL + "/api/creat", {
 			method: "POST",
 			body: JSON.stringify({
 				content: addTodo

@@ -24,5 +24,13 @@ class Todo(db.Model):
 
     def __str__(self):
         return '{self.id} {self.content}'
+    
+    def todo_serialize(self):
+        return{
+            'id': self.id,
+            'content': self.content
+        }
+
+
 
 

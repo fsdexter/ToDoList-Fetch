@@ -40,12 +40,6 @@ def generate_sitemap(app):
         <p>Remember to specify a real endpoint path like: </p>
         <ul style="text-align: left;">"""+links_html+"</ul></div>"
 
-def todo_serializer(todo):
-    return{
-        'id': todo.id,
-        'content': tudo.content
-    }
-
 
 
 
